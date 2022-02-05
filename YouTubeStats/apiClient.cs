@@ -95,7 +95,7 @@ namespace YouTubeStats
           video.PublishedAt = Convert.ToDateTime(strPublished);
           video.viewCount = item.GetProperty("statistics").GetProperty("viewCount").ToString();
           video.likeCount = item.GetProperty("statistics").GetProperty("likeCount").ToString();
-          video.dislikeCount = item.GetProperty("statistics").GetProperty("dislikeCount").ToString();
+          //video.dislikeCount = item.GetProperty("statistics").GetProperty("dislikeCount").ToString();
           video.commentCount = item.GetProperty("statistics").GetProperty("commentCount").ToString();
         }
         return video;
