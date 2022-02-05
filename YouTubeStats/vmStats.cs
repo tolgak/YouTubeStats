@@ -23,7 +23,9 @@ namespace YouTubeStats
                                            //, ChannelViewCount = this.ChannelStat.ViewCount
                                            , SubscriberCount = this.ChannelStat.SubscriberCount
                                            , VideoId = x.Id, Title = x.Title
-                                           , viewCount = x.viewCount, viewDelta = x.viewDelta, likeCount = x.likeCount, dislikeCount = x.dislikeCount, commentCount = x.commentCount }).ToList();    
+                                           , viewCount = x.viewCount, viewDelta = x.viewDelta, likeCount = x.likeCount
+                                           //, dislikeCount = x.dislikeCount
+                                           , commentCount = x.commentCount }).ToList();    
   }
 
 

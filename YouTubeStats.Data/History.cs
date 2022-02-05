@@ -26,7 +26,7 @@ namespace YouTubeStats.Data
     public string viewCount { get; set; }
     public int viewDelta { get; set; }
     public string likeCount { get; set; }
-    public string dislikeCount { get; set; }
+    //public string dislikeCount { get; set; }
     public string commentCount { get; set; }
   }
 

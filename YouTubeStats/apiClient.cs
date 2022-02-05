@@ -53,6 +53,9 @@ namespace YouTubeStats
           foreach (var element in items )
           {
             var title = element.GetProperty("snippet").GetProperty("title").ToString();
+            if (title == "Private video")
+              continue;
+
             var videoId = element.GetProperty("snippet").GetProperty("resourceId").GetProperty("videoId").ToString();
             playList.Add(new PlayListItem { Title = title, VideoId = videoId });
           }
@@ -86,8 +89,12 @@ namespace YouTubeStats
         var video = new Video();
         using (JsonDocument document = JsonDocument.Parse(json.Result, new JsonDocumentOptions { AllowTrailingCommas = true }))
         {
-          var items = document.RootElement.GetProperty("items").EnumerateArray();
-          var item  = items.FirstOrDefault();
+          JsonElement? items = document?.RootElement.GetProperty("items") ?? null;
+          if (items == null)
+            return video;
+
+          var descendants = items.Value.EnumerateArray();
+          var item  = descendants.FirstOrDefault();
 
           video.Id = item.GetProperty("id").ToString();
           video.Title = item.GetProperty("snippet").GetProperty("title").ToString();
